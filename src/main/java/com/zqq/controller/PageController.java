@@ -19,4 +19,9 @@ public class PageController {
     public String index() {
         return "index";
     }
+
+    @RequestMapping("/content")
+    public String content() {
+        return "content";
+    }
 }
