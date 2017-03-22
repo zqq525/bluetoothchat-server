@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.springframework.stereotype.Repository;
 
 
 import java.util.List;
@@ -14,6 +15,7 @@ import java.util.List;
  * Created by zhuqingquan on 2017/3/21.
  */
 @Mapper
+@Repository
 public interface UsersMapper{
     /**
      * 添加用户

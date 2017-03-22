@@ -3,7 +3,6 @@ package com.zqq.controller;
 import com.zqq.entity.reponse.ApiResult;
 import com.zqq.enums.Code;
 import com.zqq.service.FriendsService;
-import org.jboss.logging.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

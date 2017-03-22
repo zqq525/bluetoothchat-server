@@ -4,6 +4,7 @@ import com.zqq.entity.Confirm;
 import com.zqq.entity.Users;
 import com.zqq.mapper.UsersMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

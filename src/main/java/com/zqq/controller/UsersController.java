@@ -38,7 +38,7 @@ public class UsersController {
      * @return
      */
     @PostMapping(value = "/confirm")
-    public ApiResult confirm(@RequestBody Confirm confirm) {
+    public ApiResult confirm(@ModelAttribute Confirm confirm) {
         if(usersService.selectAndConfirm(confirm))
             return new ApiResult(Code.SUCCESS);
         else

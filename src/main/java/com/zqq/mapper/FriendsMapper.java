@@ -1,6 +1,7 @@
 package com.zqq.mapper;
 
 import org.apache.ibatis.annotations.*;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
@@ -8,6 +9,7 @@ import java.util.List;
  * Created by zhuqingquan on 2017/3/21.
  */
 @Mapper
+@Repository
 public interface FriendsMapper {
 
     /**
