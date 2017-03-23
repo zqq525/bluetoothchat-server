@@ -17,8 +17,7 @@ public class UsersMapperTest {
     private UsersMapper usersMapper;
     @Test
     public void insetUsersTest(){
-        Users users = new Users("123", "123", "zhuqingquan", "123456", 23, "man", "hello world!");
-        usersMapper.insertUsers(users);
+
     }
 
 

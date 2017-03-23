@@ -1,10 +1,42 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8"/>
-    <title>后台管理内容</title>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>管理系统主页</title>
+    <script th:src="@{/js/jquery-3.2.0.min.js}"></script>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+    <!-- Bootstrap -->
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet"/>
 </head>
 <body>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <div class="panel-title">注册人数统计</div>
+    </div>
+    <div class="panel-body">
+        <table class="table table-bordered">
+            <tr>
+                <th class="active">mac地址</th>
+                <th class="success">帐号</th>
+                <th class="warning">姓名</th>
+                <th class="danger">性别</th>
+                <th class="info">年龄</th>
+                <th class="success">自我介绍</th>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
 
+</div>
 </body>
 </html>

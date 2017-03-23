@@ -3,6 +3,7 @@ package com.zqq.controller;
 import com.zqq.entity.reponse.ApiResult;
 import com.zqq.enums.Code;
 import com.zqq.service.FriendsService;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,7 +27,7 @@ public class FriendsController {
      * @return
      */
     @GetMapping("/")
-    public ApiResult addFriends(@PathVariable String mid, @PathVariable String fid) {
+    public ApiResult addFriends(@RequestParam("mid") String mid, @RequestParam("fid") String fid) {
         if (friendsService.addFriends(mid, fid))
             return new ApiResult(Code.SUCCESS);
         else
@@ -51,8 +52,8 @@ public class FriendsController {
      * @param fid
      * @return
      */
-    @DeleteMapping("/")
-    public ApiResult deleteFriends(@PathVariable String mid, @PathVariable String fid) {
+    @GetMapping("/delete")
+    public ApiResult deleteFriends(@RequestParam("mid") String mid, @RequestParam("fid") String fid) {
         if (friendsService.deleteFriends(mid, fid))
             return new ApiResult(Code.SUCCESS);
         else

@@ -1,5 +1,7 @@
 package com.zqq.entity;
 
+import java.util.Date;
+
 /**
  * Created by zhuqingquan on 2017/3/21.
  */
@@ -9,6 +11,7 @@ public class Users {
     private String id;
     private String name;
     private String password;
+    private Date birthday;
     private int age;
     private String gendar;
     private String intr="";
@@ -16,17 +19,25 @@ public class Users {
     public Users() {
     }
 
-    public Users(String mac, String id, String name, String password, int age, String gendar, String intr) {
+    public Users(String mac, String id, String name, String password, Date birthday, int age, String gendar, String intr) {
         this.mac = mac;
         this.id = id;
         this.name = name;
         this.password = password;
+        this.birthday = birthday;
         this.age = age;
         this.gendar = gendar;
         this.intr = intr;
     }
 
 
+    public Date getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
+    }
 
     public String getMac() {
         return mac;

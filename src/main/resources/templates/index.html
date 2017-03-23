@@ -50,23 +50,29 @@
         function submit() {
             var id = $("#inputId").val();
             var password = $("#inputPassword").val();
+            if (id == "" || password == "") {
+                alert("输入的帐号密码不能为空");
+                return;
+            }
             $.ajax({
-                type:"post",
-                url:"/users/confirm",
+                type: "post",
+                url: "/users/confirm",
                 data: {
                     "id": id,
                     "password": password
                 },
-                dataType:"json",
+                dataType: "json",
                 success: function (data) {
                     var code = data.code;
-                    if(code==200) {
-                        location.href="/content";
+                    if (code == 200) {
+                        location.href = "/content";
+                    } else {
+                        alert("输入的帐号密码错误，请重输！");
                     }
                 }
             })
         }
-        
+
     </script>
 </div>
 </body>
