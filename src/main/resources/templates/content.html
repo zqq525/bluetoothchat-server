@@ -32,12 +32,13 @@
                     if (birthday != null) {
                         date.setTime(users.birthday);
                         birthday = date.getFullYear() + "年" + (date.getMonth()+1) + "月" + date.getDate() + "日";
+                        age = new Date().getFullYear()-date.getFullYear();
                     }
                     $("#table").append("<tr> <td>" + users.mac +
                         "</td> <td>" + users.id +
                         "</td> <td>" + users.name +
                         "</td> <td>" + users.gendar +
-                        "</td> <td>" + users.age +
+                        "</td> <td>" + age +
                         "</td> <td>" + birthday +
                         "</td> <td>" + users.intr +
                         "</td> </tr>");
