@@ -12,19 +12,58 @@
     <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet"/>
 </head>
 <body>
+<script>
+    $(function () {
+        var userid = sessionStorage.getItem("id");
+        if (userid == null) {
+            location.href = "/"
+        }
+        $.ajax({
+            url: "/users/",
+            type: "get",
+            dataType: "json",
+            success: function (data) {
+                var n = 0;
+                $.each(data, function (i, users) {
+                    n++;
+                    var date = new Date();
+                    birthday = users.birthday;
+                    if (birthday != null) {
+                        date.setTime(users.birthday);
+                        birthday = date.getFullYear() + "年" + date.getMonth() + "月" + date.getDay() + "日";
+                    }
+                    $("#table").append("<tr> <td>" + users.mac +
+                        "</td> <td>" + users.id +
+                        "</td> <td>" + users.name +
+                        "</td> <td>" + users.gendar +
+                        "</td> <td>" + users.age +
+                        "</td> <td>" + birthday +
+                        "</td> <td>" + users.intr +
+                        "</td> </tr>");
+                })
+
+                $("#title").append("(当前注册总人数：" + n + "人)");
+
+
+            }
+        })
+
+    })
+</script>
 <div class="panel panel-default">
     <div class="panel-heading">
-        <div class="panel-title">注册人数统计</div>
+        <div id="title" class="panel-title">注册人数统计</div>
     </div>
     <div class="panel-body">
-        <table class="table table-bordered">
+        <table id="table" class="table table-bordered">
             <tr>
-                <th class="active">mac地址</th>
+                <th class="info">mac地址</th>
                 <th class="success">帐号</th>
                 <th class="warning">姓名</th>
                 <th class="danger">性别</th>
                 <th class="info">年龄</th>
-                <th class="success">自我介绍</th>
+                <th class="success">出生年月日</th>
+                <th class="warning">自我介绍</th>
             </tr>
             <tr>
                 <td></td>

@@ -49,4 +49,7 @@ public interface UsersMapper{
      */
     @Select("select * from users WHERE id=#{id}")
     List<Users> selectById(@Param("id") String id);
+
+    @Select("select * from users")
+    List<Users> selectAll();
 }

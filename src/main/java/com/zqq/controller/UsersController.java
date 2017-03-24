@@ -8,6 +8,8 @@ import com.zqq.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 /**
  * Created by zhuqingquan on 2017/3/21.
  */
@@ -52,8 +54,9 @@ public class UsersController {
      */
     @GetMapping(value = "/id/{id}")
     public ApiResult selectId(@PathVariable("id") String id) {
-       if(usersService.selectById(id))
-           return new ApiResult(Code.SUCCESS);
+        Users users = usersService.selectById(id);
+       if(users != null)
+           return new ApiResult(Code.SUCCESS, users);
        else
            return new ApiResult(Code.FAILURE);
     }
@@ -65,11 +68,23 @@ public class UsersController {
      */
     @GetMapping(value = "/mac/{mac}")
     public ApiResult selectMac(@PathVariable("mac") String mac) {
-        if (usersService.selectById(mac))
-            return new ApiResult(Code.SUCCESS);
+        Users users = usersService.selectByMac(mac);
+        if(users != null)
+            return new ApiResult(Code.SUCCESS, users);
         else
             return new ApiResult(Code.FAILURE);
     }
+
+    /**
+     * 搜索所有用户
+     * @return
+     */
+    @GetMapping(value = "/")
+    public List<Users> selectAll() {
+        List<Users> list = usersService.selectAll();
+        return list;
+    }
+
 
 
 }

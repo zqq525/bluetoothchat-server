@@ -1,5 +1,6 @@
 package com.zqq.entity.reponse;
 
+import com.zqq.entity.Users;
 import com.zqq.enums.Code;
 
 /**
@@ -9,16 +10,24 @@ public class ApiResult {
 
     private String code;
     private String message;
+    private Users users;
 
     public ApiResult(Code code) {
-        this.code = code.getCode();
-        this.message = code.getMessage();
+        this(code, null);
     }
 
 
-    public ApiResult(String code, String message) {
-        this.code = code;
-        this.message = message;
+    public ApiResult(Code code, Users users) {
+        this.code = code.getCode();
+        this.users = users;
+    }
+
+    public Users getUsers() {
+        return users;
+    }
+
+    public void setUsers(Users users) {
+        this.users = users;
     }
 
     public String getCode() {

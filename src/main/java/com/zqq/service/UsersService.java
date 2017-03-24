@@ -18,6 +18,11 @@ public class UsersService {
     @Autowired
     private UsersMapper usersMapper;
 
+    /**
+     * 注册
+     * @param users
+     * @return
+     */
     public boolean addUsers(Users users) {
         int cout = usersMapper.insertUsers(users);
         if(cout>0){
@@ -26,6 +31,11 @@ public class UsersService {
         return false;
     }
 
+    /**
+     * 验证
+     * @param confirm
+     * @return
+     */
     public boolean selectAndConfirm(Confirm confirm){
         List<Users> list = null;
         list = usersMapper.selectAndConfirm(confirm);
@@ -35,21 +45,47 @@ public class UsersService {
             return false;
     }
 
-    public boolean selectByMac(String mac) {
+    /**
+     * 根据MAC地址
+     * @param mac
+     * @return
+     */
+    public Users selectByMac(String mac) {
         List<Users> list = null;
         list = usersMapper.selectByMac(mac);
-        if(list.size()>0)
-            return true;
-        else
-            return false;
+        if(list.size()>0) {
+            return list.get(0);
+        } else {
+            return null;
+        }
     }
 
-    public boolean selectById(String id) {
+    /**
+     * 根据ID
+     * @param id
+     * @return
+     */
+    public  Users selectById(String id) {
         List<Users> list = null;
         list = usersMapper.selectById(id);
-        if(list.size()>0)
-            return true;
-        else
-            return false;
+        if(list.size()>0) {
+            return list.get(0);
+        } else {
+            return null;
+        }
+    }
+
+    /**
+     * 获取所有用户
+     * @return
+     */
+    public List<Users> selectAll() {
+        List<Users> list = null;
+        list = usersMapper.selectAll();
+        if(list.size()>0) {
+            return list;
+        } else {
+            return null;
+        }
     }
 }
