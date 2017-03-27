@@ -20,7 +20,7 @@ public interface FriendsMapper {
     @Results({
             @Result(property = "fid", column = "fid")
     })
-    @Select("select * from friends WHERE mid = #{mid}")
+    @Select("select fid from friends WHERE mid = #{mid}")
     List<String> findFriendsBymid(@Param("mid") String mid);
 
     /**
@@ -40,4 +40,13 @@ public interface FriendsMapper {
      */
     @Delete("delete from friends Where mid=#{mid} and fid=#{fid}")
     int deleteBymidAndfid(@Param("mid") String mid, @Param("fid") String fid);
+
+    /**
+     * 搜索已经存在的好友
+     * @param mid
+     * @param fid
+     * @return
+     */
+    @Select("select fid from friends where mid=#{mid} and fid=#{fid]")
+    List<String> findBymidAndfid(@Param("mid") String mid, @Param("fid") String fid);
 }

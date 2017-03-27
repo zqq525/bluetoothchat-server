@@ -3,13 +3,15 @@ package com.zqq.entity.reponse;
 import com.zqq.entity.Users;
 import com.zqq.enums.Code;
 
+import java.util.Date;
+
 /**
  * Created by zhuqingquan on 2017/3/21.
  */
 public class ApiResult {
 
     private String code;
-    private String message;
+    private String message="";
     private Users users;
 
     public ApiResult(Code code) {

@@ -37,4 +37,13 @@ public class FriendsService {
         else
             return false;
     }
+
+    public boolean searchExistFriends(String mid, String fid){
+        List<String> list = null;
+        list = friendsMapper.findBymidAndfid(mid, fid);
+        if(list.size()>0)
+            return true;
+        else
+            return false;
+    }
 }

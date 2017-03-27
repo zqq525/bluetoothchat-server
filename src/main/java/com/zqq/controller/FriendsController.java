@@ -59,4 +59,12 @@ public class FriendsController {
         else
             return new ApiResult(Code.FAILURE);
     }
+
+    @GetMapping("/exist/")
+    public  ApiResult searchExistFriends(@RequestParam("mid") String mid, @RequestParam("fid") String fid) {
+        if (friendsService.searchExistFriends(mid, fid))
+            return new ApiResult(Code.EXITS);
+        else
+            return new ApiResult(Code.FAILURE);
+    }
 }

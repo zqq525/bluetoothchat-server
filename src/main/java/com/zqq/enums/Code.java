@@ -5,7 +5,8 @@ package com.zqq.enums;
  */
 public enum Code {
     SUCCESS("200","成功"),
-    FAILURE("500","失败");
+    FAILURE("500","失败"),
+    EXITS("201", "已存在");
 
 
     Code(String code, String message) {

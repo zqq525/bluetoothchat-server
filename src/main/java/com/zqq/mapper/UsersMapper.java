@@ -50,6 +50,10 @@ public interface UsersMapper{
     @Select("select * from users WHERE id=#{id}")
     List<Users> selectById(@Param("id") String id);
 
+    /**
+     * 查找
+     * @return
+     */
     @Select("select * from users")
     List<Users> selectAll();
 }
