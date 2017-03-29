@@ -29,8 +29,8 @@ public interface FriendsMapper {
      * @param fid
      * @return
      */
-    @Insert("insert into friends(mid,fid) values(#{mid}, #{fid})")
-    int addriendsBymidAndfid(@Param("mid") String mid, @Param("fid") String fid);
+    @Insert("insert into friends(mid,fid, time) values(#{mid}, #{fid}, #{time})")
+    int addriendsBymidAndfid(@Param("mid") String mid, @Param("fid") String fid, @Param("time") String time);
 
     /**
      * 根据mid和fid删除好友
@@ -47,6 +47,6 @@ public interface FriendsMapper {
      * @param fid
      * @return
      */
-    @Select("select fid from friends where mid=#{mid} and fid=#{fid]")
+    @Select("select fid from friends where mid=#{mid} and fid=#{fid}")
     List<String> findBymidAndfid(@Param("mid") String mid, @Param("fid") String fid);
 }

@@ -27,8 +27,8 @@ public class FriendsController {
      * @return
      */
     @GetMapping("/")
-    public ApiResult addFriends(@RequestParam("mid") String mid, @RequestParam("fid") String fid) {
-        if (friendsService.addFriends(mid, fid))
+    public ApiResult addFriends(@RequestParam("mid") String mid, @RequestParam("fid") String fid, @RequestParam String time) {
+        if (friendsService.addFriends(mid, fid, time))
             return new ApiResult(Code.SUCCESS);
         else
             return new ApiResult(Code.FAILURE);

@@ -11,6 +11,7 @@ public class Users {
     private String id;
     private String name;
     private String password;
+    private String phone;
     private Date birthday;
     private int age;
     private String gendar;
@@ -19,17 +20,25 @@ public class Users {
     public Users() {
     }
 
-    public Users(String mac, String id, String name, String password, Date birthday, int age, String gendar, String intr) {
+    public Users(String mac, String id, String name, String password, String phone, Date birthday, int age, String gendar, String intr) {
         this.mac = mac;
         this.id = id;
         this.name = name;
         this.password = password;
+        this.phone = phone;
         this.birthday = birthday;
         this.age = age;
         this.gendar = gendar;
         this.intr = intr;
     }
 
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
 
     public Date getBirthday() {
         return birthday;

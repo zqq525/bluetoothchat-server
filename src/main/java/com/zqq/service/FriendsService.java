@@ -15,8 +15,8 @@ public class FriendsService {
     @Autowired
     private FriendsMapper friendsMapper;
 
-    public boolean addFriends(String mid, String fid) {
-        int result = friendsMapper.addriendsBymidAndfid(mid, fid);
+    public boolean addFriends(String mid, String fid, String time) {
+        int result = friendsMapper.addriendsBymidAndfid(mid, fid, time);
         if (result > 0)
             return true;
         else

@@ -32,11 +32,16 @@
                     if (birthday != null) {
                         date.setTime(users.birthday);
                         birthday = date.getFullYear() + "年" + (date.getMonth()+1) + "月" + date.getDate() + "日";
-                        age = new Date().getFullYear()-date.getFullYear();
+                        if (users.age == 0) {
+                            age = new Date().getFullYear() - date.getFullYear();
+                        } else {
+                            age = users.age;
+                        }
                     }
                     $("#table").append("<tr> <td>" + users.mac +
                         "</td> <td>" + users.id +
                         "</td> <td>" + users.name +
+                        "</td> <td>" + users.phone +
                         "</td> <td>" + users.gendar +
                         "</td> <td>" + age +
                         "</td> <td>" + birthday +
@@ -62,6 +67,7 @@
                 <th class="info">mac地址</th>
                 <th class="success">帐号</th>
                 <th class="warning">姓名</th>
+                <th class="info">联系方式</th>
                 <th class="danger">性别</th>
                 <th class="info">年龄</th>
                 <th class="success">出生年月日</th>

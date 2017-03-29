@@ -22,8 +22,8 @@ public interface UsersMapper{
      * @param users
      * @return
      */
-    @Insert("Insert Into users(mac, id, name, password, birthday, age, gendar, intr) values(#{mac}," +
-            "#{id}, #{name}, #{password}, #{birthday}, #{age}, #{gendar}, #{intr})")
+    @Insert("Insert Into users(mac, id, name, password, phone, birthday, age, gendar, intr) values(#{mac}," +
+            "#{id}, #{name}, #{password}, #{phone}, #{birthday}, #{age}, #{gendar}, #{intr})")
     int insertUsers(Users users);
 
     /**

@@ -17,7 +17,7 @@ public class UsersMapperTest {
     private UsersMapper usersMapper;
     @Test
     public void insetUsersTest(){
-
+        
     }
 
 
