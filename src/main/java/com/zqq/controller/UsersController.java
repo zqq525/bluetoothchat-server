@@ -7,6 +7,7 @@ import com.zqq.enums.Code;
 import com.zqq.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import com.github.pagehelper.PageHelper;
 
 import java.util.List;
 
@@ -79,8 +80,11 @@ public class UsersController {
      * 搜索所有用户
      * @return
      */
-    @GetMapping(value = "/")
-    public List<Users> selectAll() {
+    @GetMapping(value = "/{page}")
+    public List<Users> selectAll(@PathVariable("page") int page) {
+        if(page > 0) {
+            PageHelper.startPage(page, 15);
+        }
         List<Users> list = usersService.selectAll();
         return list;
     }
