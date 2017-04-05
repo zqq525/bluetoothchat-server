@@ -16,11 +16,13 @@ public class Users {
     private int age;
     private String gendar;
     private String intr="";
+    private String time;
 
     public Users() {
     }
 
-    public Users(String mac, String id, String name, String password, String phone, Date birthday, int age, String gendar, String intr) {
+
+    public Users(String mac, String id, String name, String password, String phone, Date birthday, int age, String gendar, String intr, String time) {
         this.mac = mac;
         this.id = id;
         this.name = name;
@@ -30,6 +32,16 @@ public class Users {
         this.age = age;
         this.gendar = gendar;
         this.intr = intr;
+        this.time = time;
+    }
+
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
     }
 
     public String getPhone() {

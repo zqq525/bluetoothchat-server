@@ -54,7 +54,18 @@
                                             age = users.age;
                                         }
                                     }
-
+                                    regist = users.time;
+                                    var registtime="null";
+                                    if (regist != null) {
+                                        now = new Date(regist)
+                                        var   year=now.getFullYear();
+                                        var   month=now.getMonth()+1;
+                                        var   date=now.getDate();
+                                        var   hour=now.getHours();
+                                        var   minute=now.getMinutes();
+                                        var   second=now.getSeconds();
+                                        registtime = year+"-"+month+"-"+date+"   "+hour+":"+minute+":"+second
+                                    }
                                     html += "<tr> <td>" + users.mac +
                                         "</td> <td>" + users.id +
                                         "</td> <td>" + users.name +
@@ -63,6 +74,7 @@
                                         "</td> <td>" + age +
                                         "</td> <td>" + birthday +
                                         "</td> <td>" + users.intr +
+                                        "</td> <td>" + registtime +
                                         "</td> </tr>";
                                 })
                                 $("#mytable").html(html);
@@ -95,6 +107,7 @@
                 <th class="info">年龄</th>
                 <th class="success">出生年月日</th>
                 <th class="warning">自我介绍</th>
+                <th class="info">注册时间</th>
             </tr>
             </thead>
             <tbody id="mytable">
