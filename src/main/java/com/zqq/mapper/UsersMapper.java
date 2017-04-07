@@ -2,10 +2,7 @@ package com.zqq.mapper;
 
 import com.zqq.entity.Confirm;
 import com.zqq.entity.Users;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 
 
@@ -48,6 +45,9 @@ public interface UsersMapper{
      * @return
      */
     @Select("select * from users WHERE id=#{id}")
+    @Results({
+
+    })
     List<Users> selectById(@Param("id") String id);
 
     /**

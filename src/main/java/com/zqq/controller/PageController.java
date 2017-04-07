@@ -24,4 +24,14 @@ public class PageController {
     public String content() {
         return "content";
     }
+
+    @RequestMapping("/admin")
+    public String admin() {
+        return "admin";
+    }
+
+    @RequestMapping("/login")
+    public String login() {
+        return "login";
+    }
 }
