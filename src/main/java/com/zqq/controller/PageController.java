@@ -12,24 +12,27 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class PageController {
 
     /**
-     * 显示主页
+     * 系统登录
      * @return
      */
     @RequestMapping("/")
     public String index() {
-        return "index";
+        return "login";
     }
 
-    @RequestMapping("/content")
-    public String content() {
-        return "content";
-    }
-
+    /**
+     * 管理界面
+     * @return
+     */
     @RequestMapping("/admin")
     public String admin() {
         return "admin";
     }
 
+    /**
+     * 登录界面
+     * @return
+     */
     @RequestMapping("/login")
     public String login() {
         return "login";
