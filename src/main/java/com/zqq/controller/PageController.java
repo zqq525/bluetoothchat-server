@@ -37,4 +37,19 @@ public class PageController {
     public String login() {
         return "login";
     }
+
+    @RequestMapping("/addadmin")
+    public String addAdmin() {
+        return "addadmin";
+    }
+
+    @RequestMapping("/content_add")
+    public String addContent() {
+        return "content_add";
+    }
+
+    @RequestMapping("/content_update")
+    public String updateAdmin() {
+        return "content_update";
+    }
 }
