@@ -56,4 +56,24 @@ public interface UsersMapper{
      */
     @Select("select * from users")
     List<Users> selectAll();
+
+    /**
+     * 修改用户信息
+     * @param mac
+     * @param name
+     * @param phone
+     * @param birthday
+     * @param intr
+     * @return
+     */
+    @Update("update users set name=#{name} ,phone=#{phone}, age=#{age}, birthday=#{birthday}, intr=#{intr} where mac = #{mac}")
+    int updateUser(@Param("mac") String mac,
+                   @Param("name") String name,
+                   @Param("phone") String phone,
+                   @Param("age") String age,
+                   @Param("birthday") String birthday,
+                   @Param("intr") String intr);
+
+    @Update("update user set password=#{password} where mac=#{mac}")
+    int updatePassword(@Param("mac") String mac, @Param("password") String password);
 }

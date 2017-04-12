@@ -88,4 +88,37 @@ public class UsersService {
             return null;
         }
     }
+
+    /**
+     * 更新用户信息
+     * @param mac
+     * @param name
+     * @param phone
+     * @param birthday
+     * @param intr
+     * @return
+     */
+    public boolean updateUser(String mac, String name, String phone, String age, String birthday, String intr) {
+        int result = usersMapper.updateUser(mac, name, phone, age, birthday, intr);
+        if (result > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * 更改密码
+     * @param mac
+     * @param password
+     * @return
+     */
+    public boolean updatePassword(String mac, String password) {
+        int result = usersMapper.updatePassword(mac, password);
+        if (result > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

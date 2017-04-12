@@ -5,6 +5,7 @@ import com.zqq.entity.Users;
 import com.zqq.entity.reponse.ApiResult;
 import com.zqq.enums.Code;
 import com.zqq.service.UsersService;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import com.github.pagehelper.PageHelper;
@@ -89,5 +90,38 @@ public class UsersController {
         return list;
     }
 
+    /**
+     * 更新用户信息
+     * @param mac
+     * @param name
+     * @param phone
+     * @param birthday
+     * @param intr
+     * @return
+     */
+    @PostMapping("/message/{mac}")
+    public ApiResult updateUser(@PathVariable("mac") String mac, @RequestParam("name") String name,
+                                @RequestParam("phone") String phone, @RequestParam("age") String age,
+                                @RequestParam("birthday") String birthday, @RequestParam("intr") String intr) {
+        if (usersService.updateUser(mac, name, phone, age, birthday, intr)) {
+            return new ApiResult(Code.SUCCESS);
+        } else {
+            return new ApiResult(Code.FAILURE);
+        }
+    }
 
+    /**
+     * 更新密码
+     * @param mac
+     * @param password
+     * @return
+     */
+    @PostMapping("/password/{mac}")
+    public ApiResult updatePassword(@PathVariable("mac") String mac, @RequestParam("password") String password) {
+        if(usersService.updatePassword(mac, password)) {
+            return new ApiResult(Code.SUCCESS);
+        }else {
+            return new ApiResult(Code.FAILURE);
+        }
+    }
 }
