@@ -74,6 +74,6 @@ public interface UsersMapper{
                    @Param("birthday") String birthday,
                    @Param("intr") String intr);
 
-    @Update("update user set password=#{password} where mac=#{mac}")
+    @Update("update users set password=#{password} where mac=#{mac}")
     int updatePassword(@Param("mac") String mac, @Param("password") String password);
 }
