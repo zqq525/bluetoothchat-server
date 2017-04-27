@@ -60,6 +60,12 @@ public class FriendsController {
             return new ApiResult(Code.FAILURE);
     }
 
+    /**
+     * 检查是否已经是好友
+     * @param mid
+     * @param fid
+     * @return
+     */
     @GetMapping("/exist/")
     public  ApiResult searchExistFriends(@RequestParam("mid") String mid, @RequestParam("fid") String fid) {
         if (friendsService.searchExistFriends(mid, fid))
