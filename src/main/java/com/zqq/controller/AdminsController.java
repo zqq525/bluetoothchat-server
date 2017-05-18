@@ -56,6 +56,11 @@ public class AdminsController {
         return list;
     }
 
+    /**
+     * 更新用户信息
+     * @param admin
+     * @return
+     */
     @PutMapping("/update")
     public ApiResult updateAdmin(@ModelAttribute Admin admin) {
         if(adminsService.updateAdmin(admin)) {
@@ -65,6 +70,11 @@ public class AdminsController {
         }
     }
 
+    /**
+     * 根据用户id查找
+     * @param id
+     * @return
+     */
     @GetMapping("/id/{id}")
     public ApiResult selectById(@PathVariable("id") String id) {
         if (adminsService.selectAdminById(id))
@@ -73,6 +83,11 @@ public class AdminsController {
             return new ApiResult(Code.FAILURE);
     }
 
+    /**
+     * 删除管理员
+     * @param id
+     * @return
+     */
     @GetMapping("/delete/{id}")
     public ApiResult deleteById(@PathVariable("id") String id) {
         if (adminsService.deleteAdminById(id))

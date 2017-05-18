@@ -42,6 +42,7 @@ $(function () {
                                         var second = now.getSeconds();
                                         registtime = year + "-" + month + "-" + date + "   " + hour + ":" + minute + ":" + second
                                     }
+
                                     html += "<tr> <td>" + admin.id +
                                         "</td> <td>" + registtime +
                                         "</td> <td>" +
@@ -147,15 +148,17 @@ function updateAdmin() {
 }
 
 function deleteAdmin(id) {
-    $.ajax({
-        type : "get",
-        url : "/admin/delete/" + id,
-        dataType : "json",
-        success : function (data) {
-            if (data.code == 200) {
-                alert("删除成功！");
-                location.reload();
+    if(confirm("是否删除？")) {
+        $.ajax({
+            type: "get",
+            url: "/admin/delete/" + id,
+            dataType: "json",
+            success: function (data) {
+                if (data.code == 200) {
+                    alert("删除成功！");
+                    location.reload();
+                }
             }
-        }
-    })
+        })
+    }
 }
